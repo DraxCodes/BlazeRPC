@@ -36,11 +36,11 @@ namespace BlazeRPC
                 }
 
                 Log.Logger = new LoggerConfiguration()
-                            .MinimumLevel.Override("Microsoft", LogEventLevel.Verbose)
-                            .Enrich.FromLogContext()
-                            .WriteTo.Console(LogEventLevel.Verbose)
-                            .WriteTo.File("BlazeRPC.log", LogEventLevel.Verbose)
-                            .CreateLogger();
+                    .MinimumLevel.Debug()
+                    .Enrich.FromLogContext()
+                    .WriteTo.Console()
+                    .WriteTo.File("BlazeRPC.log")
+                    .CreateLogger();
 
 
                 Log.Information("Starting web host");

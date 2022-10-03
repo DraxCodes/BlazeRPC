@@ -1,6 +1,5 @@
 using DiscordRPC;
 using Serilog;
-using Serilog.Events;
 
 namespace BlazeRPC
 {
@@ -35,33 +34,37 @@ namespace BlazeRPC
 
         public void RunSetup()
         {
-            _logger.Verbose("Client Initializing...");
+            _logger.Information("Client Initializing...");
             _client.Initialize();
-            _logger.Verbose("Client Initialized: {0}", _client.IsInitialized);
+            _logger.Information("Client Initialized: {0}", _client.IsInitialized);
 
-            _logger.Verbose("Setting up buttons");
-            var buttons = new Button[] {
-                new Button {
-                    Label = "Join TPH",
-                    Url = "https://discord.gg/programming"
-                },
-                new Button {
-                    Label = "My Links",
-                    Url = "https://links.joelparkinson.me"
+            _logger.Information("Setting up buttons");
+            var buttons = new List<Button>();
+            
+            if (_config.Buttons.Count >= 1)
+            {
+                foreach (var button in _config.Buttons)
+                {
+                    buttons.Add(new Button
+                    {
+                        Label = button.Name,
+                        Url = button.Url,
+                    });
                 }
-            };
+            }
 
             _client.SetPresence(new RichPresence()
             {
-                Details = "Example Project",
-                State = "csharp example",
+                Details = _config.Details,
+                State = _config.State,
                 Assets = new Assets()
                 {
-                    LargeImageKey = "tphlogo",
-                    LargeImageText = "The Programmers Hangout",
-                    SmallImageKey = "avatar"
+                    LargeImageKey = _config.LargeImageName,
+                    LargeImageText = _config.LargeImageAlt,
+                    SmallImageKey = _config.SmallImageName,
+                    SmallImageText = _config.SmallImageAlt,
                 },
-                Buttons = buttons
+                Buttons = buttons.ToArray()
             });
 
         }
