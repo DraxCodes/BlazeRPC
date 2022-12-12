@@ -1,4 +1,4 @@
-<center><img src="https://blazebin.net/r/NyFOUo.png" /></center>
+<center><img src="https://user-images.githubusercontent.com/1976592/207096842-ddd0305e-10fb-4d68-97e8-b06909958a2c.png" /></center>
 
 
 ### BlazeRPC
@@ -52,7 +52,7 @@ Example Config
 ```
 
 #### Final Result
-<img src="https://blazebin.net/r/dff99A.png" />
+![xcGdN9](https://user-images.githubusercontent.com/1976592/207097024-6bad4fa1-43e9-4419-8882-d49f35c064c9.png)
 
 
 
