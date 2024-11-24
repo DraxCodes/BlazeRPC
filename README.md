@@ -60,7 +60,7 @@ Example Config
 
 #### Compiling source
 
-- Ensure you have Dotnet6 or later installed.
+- Ensure you have Dotnet6 or later installed. (THe latest version of the dotnet SDK will work fine still)
 - Clone the repository
 
 ```bash
